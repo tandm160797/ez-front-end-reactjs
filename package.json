@@ -1,0 +1,40 @@
+{
+	"name": "react-template",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Tan Dang <tandm160797@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "webpack serve --mode development",
+		"build": "rm -rf ./dist && webpack --mode production",
+		"pretty": "prettier --write \"./**/*.{js,jsx,json}\""
+	},
+	"devDependencies": {
+		"@babel/core": "^7.13.8",
+		"@babel/preset-env": "^7.13.9",
+		"@babel/preset-react": "^7.12.13",
+		"babel-loader": "^8.2.2",
+		"dotenv-webpack": "^7.0.1",
+		"file-loader": "^6.2.0",
+		"html-webpack-plugin": "^5.2.0",
+		"prettier": "^2.2.1",
+		"webpack": "^5.24.3",
+		"webpack-cli": "^4.5.0",
+		"webpack-dev-server": "^3.11.2"
+	},
+	"dependencies": {
+		"@hookform/resolvers": "^1.3.5",
+		"@material-ui/core": "^4.11.3",
+		"@material-ui/icons": "^4.11.2",
+		"@reduxjs/toolkit": "^1.5.0",
+		"axios": "^0.21.1",
+		"prop-types": "^15.7.2",
+		"query-string": "^6.14.1",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-hook-form": "^6.15.4",
+		"react-redux": "^7.2.2",
+		"react-router-dom": "^5.2.0",
+		"yup": "^0.32.9"
+	}
+}
