@@ -16,7 +16,7 @@ axiosClient.interceptors.request.use(
 		return req;
 	},
 	(err) => {
-		return Promise.reject(`Failed to request with error: ${err.message}`);
+		return Promise.reject(err.message);
 	}
 );
 
@@ -30,7 +30,7 @@ axiosClient.interceptors.response.use(
 		return res;
 	},
 	(err) => {
-		return Promise.reject(`Failed to response with error: ${err.message}`);
+		return Promise.reject(err.message);
 	}
 );
 

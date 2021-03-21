@@ -8,30 +8,20 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { useStyles } from './styles';
 
-const RegisterForm = (props) => {
+const LoginForm = (props) => {
 	const classes = useStyles();
 
 	const { onSubmit, closeDialog } = props;
 
 	const schema = yup.object().shape({
 		email: yup.string().required('Email không được để trống').email('Vui lòng nhập email đúng định dạng'),
-		password: yup
-			.string()
-			.required('Mật khẩu không được để trống')
-			.min(6, 'Mật khẩu phải chứa tối thiểu 6 ký tự')
-			.max(32, 'Mật khẩu chỉ chứa tối đa 32 ký tự')
-			.matches(/(?=.*?[0-9])/, { message: 'Mật khẩu phải chứa ít nhất 1 ký số' })
-			.matches(/(?=.*?[a-z])/, { message: 'Mật khẩu phải chứa ít nhất 1 ký thường' })
-			.matches(/(?=.*?[A-Z])/, { message: 'Mật khẩu phải chứa ít nhất 1 ký tự in hoa' })
-			.matches(/(?=.*?[#?!@$%^&*-])/, { message: 'Mật khẩu phải chứa ít nhất 1 ký đặc biệt' }),
-		passwordConfirm: yup.string().oneOf([yup.ref('password')], 'Mật khẩu không trùng khớp')
+		password: yup.string().required('Mật khẩu không được để trống')
 	});
 
 	const form = useForm({
 		defaultValues: {
 			email: '',
-			password: '',
-			passwordConfirm: ''
+			password: ''
 		},
 		resolver: yupResolver(schema)
 	});
@@ -47,18 +37,17 @@ const RegisterForm = (props) => {
 	};
 
 	return (
-		<div className={classes.registerForm}>
+		<div className={classes.LoginForm}>
 			{isSubmitting && <LinearProgress className={classes.process} />}
 			<Avatar className={classes.avt}>
 				<LockOutlined />
 			</Avatar>
 			<Typography className={classes.title} component="h6" variant="h6">
-				Tạo tài khoản
+				Đăng nhập tài khoản
 			</Typography>
 			<form onSubmit={form.handleSubmit(handleSubmit)}>
 				<InputField name="email" label="Email" variant="outlined" form={form} />
 				<PasswordField name="password" label="Mật khẩu" variant="outlined" form={form} />
-				<PasswordField name="passwordConfirm" label="Nhập lại mật khẩu" variant="outlined" form={form} />
 				<Button
 					disabled={isSubmitting}
 					className={classes.submitBtn}
@@ -67,7 +56,7 @@ const RegisterForm = (props) => {
 					color="primary"
 					fullWidth
 				>
-					Đăng ký
+					Đăng nhập
 				</Button>
 				<Button onClick={closeDialog} className={classes.cancelBtn} variant="contained" color="secondary" fullWidth>
 					Huỷ
@@ -77,13 +66,13 @@ const RegisterForm = (props) => {
 	);
 };
 
-RegisterForm.propTypes = {
+LoginForm.propTypes = {
 	onSubmit: PropTypes.func,
 	closeDialog: PropTypes.func.isRequired
 };
 
-RegisterForm.defaultProps = {
+LoginForm.defaultProps = {
 	onSubmit: null
 };
 
-export default RegisterForm;
+export default LoginForm;

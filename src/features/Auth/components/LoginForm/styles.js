@@ -17,7 +17,9 @@ const styles = (theme) => ({
 	submitBtn: {
 		margin: theme.spacing(2, 0, 1, 0)
 	},
-	cancelBtn: {}
+	cancelBtn: {
+		marginBottom: theme.spacing(1)
+	}
 });
 const useStyles = makeStyles(styles);
 

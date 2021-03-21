@@ -42,6 +42,7 @@ var webpackConfig = {
 		alias: {
 			'$redux-toolkit': path.resolve(__dirname, 'src/redux-toolkit'),
 			$components: path.resolve(__dirname, 'src/components'),
+			$constants: path.resolve(__dirname, 'src/constants'),
 			$features: path.resolve(__dirname, 'src/features'),
 			$themes: path.resolve(__dirname, 'src/themes'),
 			$hooks: path.resolve(__dirname, 'src/hooks'),

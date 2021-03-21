@@ -1,9 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 
 const styles = (theme) => ({
-	count: {
-		color: theme.palette.primary.main
-	}
+	register: null
 });
 const useStyles = makeStyles(styles);
 

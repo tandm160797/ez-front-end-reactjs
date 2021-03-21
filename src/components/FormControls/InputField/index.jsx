@@ -4,16 +4,15 @@ import React from 'react';
 import { Controller } from 'react-hook-form';
 
 const InputField = (props) => {
-	const { form, name, type, label, variant, helperText, defaultValue, disabled, fullWidth, margin } = props;
+	const { form, name, label, variant, helperText, defaultValue, disabled, fullWidth, margin } = props;
 
-	const { errors, formState } = form;
+	const { errors } = form;
 
 	return (
 		<Controller
 			name={name}
 			control={form.control}
 			as={TextField}
-			type={type}
 			label={label}
 			variant={variant}
 			helperText={helperText || errors[name]?.message}
@@ -21,7 +20,7 @@ const InputField = (props) => {
 			disabled={disabled}
 			fullWidth={fullWidth}
 			margin={margin}
-			error={!!(formState.touched[name] && errors[name])}
+			error={!!errors[name]}
 		/>
 	);
 };
@@ -29,7 +28,6 @@ const InputField = (props) => {
 InputField.propTypes = {
 	form: PropTypes.object.isRequired,
 	name: PropTypes.string.isRequired,
-	type: PropTypes.string,
 	label: PropTypes.string,
 	variant: PropTypes.string,
 	helperText: PropTypes.string,
@@ -40,7 +38,6 @@ InputField.propTypes = {
 };
 
 InputField.defaultProps = {
-	type: 'text',
 	label: '',
 	variant: 'standard',
 	helperText: '',
